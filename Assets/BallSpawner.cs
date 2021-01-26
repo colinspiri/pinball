@@ -31,7 +31,6 @@ public class BallSpawner : MonoBehaviour
 
     public void SpawnBall()
     {
-        Debug.Log("spawn a ball");
         GameObject newBall = Instantiate(ballPrefab, new Vector3(4.3f, 0.6f, 0.0f), Quaternion.identity);
         ballsSpawned++;
     }

@@ -26,8 +26,6 @@ public class Launcher : MonoBehaviour
     {
         FindSittingBall();
         
-        Debug.Log("sitting ball = " + sittingBall);
-
         // hold down launch key
         if (Input.GetKey(key))
         {
