@@ -9,11 +9,13 @@ public class Gutter : MonoBehaviour
 
     public BallSpawner ballSpawner;
     public GameManager gameManager;
+
+    private AudioSource loseBallSound;
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        loseBallSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class Gutter : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         ballsLost++;
+        loseBallSound.Play();
         Debug.Log("lost another ball " + ballsLost);
         if (ballsLost >= ballSpawner.maxBalls)
         {

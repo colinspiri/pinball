@@ -15,10 +15,12 @@ public class Launcher : MonoBehaviour
     public float maxForce;
     public float maxHoldTime;
 
+    private AudioSource launchBallSound;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        launchBallSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -42,6 +44,8 @@ public class Launcher : MonoBehaviour
                 float force = maxForce * ratio;
                 Debug.Log("launching ball with hold ratio = " + holdTimer + " / " + maxHoldTime);
                 sittingBall.GetComponent<Rigidbody>().AddForce(new Vector3(0.0f, 0.0f, force));
+
+                launchBallSound.Play();
             }
             holdTimer = 0.0f;
         }

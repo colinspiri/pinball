@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     public Text endPointsText;
 
     public Gutter gutter;
+
+    public AudioSource noSound;
+    public AudioSource noOnesEverReallyGoneSound;
     
     // Start is called before the first frame update
     void Start()
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
         // restart game
         if (Input.GetKeyDown(restartGameKey))
         {
+            noSound.Stop();
+            noOnesEverReallyGoneSound.Play();
             points = 0;
             ballSpawner.ballsSpawned = 0;
             gutter.ballsLost = 0;
@@ -57,6 +62,7 @@ public class GameManager : MonoBehaviour
         gameUI.SetActive(false);
         endUI.SetActive(true);
         endPointsText.text = "Points: " + points;
+        noSound.Play();
     }
     
 }
